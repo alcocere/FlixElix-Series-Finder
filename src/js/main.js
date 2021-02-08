@@ -25,11 +25,12 @@ const getDataFromApi = () => {
 
 function renderShows() {
     let htmlCode = '';
-    for (let i = 0; i < series.length; i++) {
 
+    for (let i = 0; i < series.length; i++) {
+        let imgURL = series[i].show.image.medium;
         htmlCode += `<li class="js-show">`;
         htmlCode += `<h5 class="js-show-name">${series[i].show.name}</h5>`;
-        htmlCode += `<img src="" ${series[i].show.name}" class="js-show-img/>`;
+        htmlCode += `<img src="${imgURL}" alt="Show image" ${series[i].show.name}" class="js-show-img"></img>`;
         htmlCode += `</li>`;
     }
     showsResult.innerHTML = htmlCode;
