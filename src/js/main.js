@@ -4,12 +4,16 @@
 //HTML elements
 const searchInput = document.querySelector('.js-search');
 const showsResult = document.querySelector('.js-tvshows');
+const btnElement = document.querySelector('.js-btn');
+const formElement = document.querySelector('.js-form');
+
 
 // Array que se llenara una vez que la api regrese los datos buscados
 let series = [];
 
 //API TVMaze
-function getDataFromApi() {
+function getDataFromApi(ev) {
+    ev.preventDefault();
     fetch(`http://api.tvmaze.com/search/shows?q=${'girls'}`)
         .then(response => response.json())
         .then(data => {
@@ -31,11 +35,16 @@ function renderShows() {
     }
     showsResult.innerHTML = htmlCode;
 }
+btnElement.addEventListener('click', getDataFromApi);
 
-function handleSearch() {
+function handleSearch(ev) {
+    ev.preventDefault();
+    console.log(searchInput.value);
+    getDataFromApi();
 }
 
+formElement.addEventListener('submit', handleSearch);
 searchInput.addEventListener('keyup', handleSearch);
 
-getDataFromApi();
+
 
