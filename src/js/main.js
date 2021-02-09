@@ -67,8 +67,7 @@ const selectedFavs = (ev) => {
         //agrega al array el item seleccionado
         favSeries.push(clickedShow);
     } else { favSeries.splice(isFavorite, 1); }
-    //quita el item del array+
-    console.log(favSeries);
+    //quita el item del array
 };
 
 function listenFavs() {
@@ -82,18 +81,18 @@ function listenFavs() {
 function renderFavs() {
     let htmlCode = '';
 
-    for (let i = 0; i < series.length; i++) {
-        let imgURL = series[i].show.image;
-        let idSerie = series[i].show.id;
+    for (let i = 0; i < favSeries.length; i++) {
+        let imgURL = favSeries[i].show.image;
+        let idSerie = favSeries[i].show.id;
         htmlCode += `<li class="js__favshow" id="${idSerie}">`;
         htmlCode += '<div class="js__favshow--container">';
 
         if (imgURL === null) {
-            htmlCode += `<img class="js__favshow--img"src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" title="${series[i].show.name}" alt="${series[i].show.name} cover not available"/>`;
+            htmlCode += `<img class="js__favshow--img"src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" title="${favSeries[i].show.name}" alt="${favSeries[i].show.name} cover not available"/>`;
         } else {
-            htmlCode += `<img src="${imgURL.medium}" alt="Show image" ${series[i].show.name}" class="js__favshow--img"></img>`;
+            htmlCode += `<img src="${imgURL.medium}" alt="Show image" ${favSeries[i].show.name}" class="js__favshow--img"></img>`;
         }
-        htmlCode += `<h5 class="js__favshow--name">${series[i].show.name}</h5>`;
+        htmlCode += `<h5 class="js__favshow--name">${favSeries[i].show.name}</h5>`;
         htmlCode += '</div>';
         htmlCode += `</li>`;
     }
@@ -101,9 +100,10 @@ function renderFavs() {
 }
 
 //HANDLE FAVS
-function handleFavs() {
+function handleFavs(ev) {
+    selectedFavs(ev);
     renderFavs();
-    selectedFavs();
+
 }
 
 formElement.addEventListener('submit', handleForm);
