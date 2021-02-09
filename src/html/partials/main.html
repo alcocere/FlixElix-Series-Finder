@@ -1,26 +1,26 @@
 <main class="main">
 
-  <section class="search-section">
+  <section class="form-section">
     <form method="GET"
           class="js-form">
       <input type="text"
              id="search"
              name="search"
              placeholder="Enter a TV show name"
-             class="form__search js-search" />
+             class="form-search js-search" />
       <input type="button"
              name="button"
              id="button"
              value="Search"
              class="btn btn-primary js-btn" />
     </form>
-
-    <section class="searchSection">
-      <ul class="searchSection__list js-tvshows"></ul>
-    </section>
-    <section>
-      <h3 class="favSection__subtitle">My favorites &#9829</h3>
-      <ul class="favSection__list js-list-favorites"></ul>
-    </section>
+  </section>
+  <section class="results__section">
+    <ul class="results__section--list js-tvshows"></ul>
+  </section>
+  <section class="favorites-section">
+    <h3 class="favSection__subtitle">My favorite shows &#9829</h3>
+    <ul class="favSection__list js-list-favorites"></ul>
+  </section>
 
 </main>
