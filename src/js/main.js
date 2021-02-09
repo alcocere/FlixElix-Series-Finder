@@ -48,6 +48,7 @@ function renderShows() {
         htmlCode += `</li>`;
     }
     showsResult.innerHTML = htmlCode;
+    listenFavs();
 }
 
 function handleForm(ev) {
@@ -55,31 +56,55 @@ function handleForm(ev) {
 }
 
 //FAVS --------------------------------------------------------------------------------
-const handleFavs = (ev) => {
+const selectedFavs = (ev) => {
     const selectedSerie = parseInt(ev.currentTarget.id);
     //console.log(event.currentTarget.id);
     //consigue el nombre y id de se series donde se hace click
     let clickedShow = series.find((item) => selectedSerie === item.show.id);
     let isFavorite = favSeries.findIndex((item) => selectedSerie === item.show.id);
-    //revisa si el item ya existe en el array de favoritos, si es -1 es que no existe
+    //revisa si el item ya existe en la lista de favoritos, si es -1 es que no existe
     if (isFavorite === -1) {
         //agrega al array el item seleccionado
         favSeries.push(clickedShow);
-    } else {
-        //quita el item del array
-        favSeries.splice(isFavorite, 1);
-    }
-
-    listenElementsClicked();
+    } else { favSeries.splice(isFavorite, 1); }
+    //quita el item del array+
+    console.log(favSeries);
 };
 
-function listenElementsClicked() {
-    const listShows = document.querySelectorAll('.js-show');
-    for (const eachSerie of listShows) {
+function listenFavs() {
+    const selectedSeries = document.querySelectorAll('.js-show');
+    for (const eachSerie of selectedSeries) {
         eachSerie.addEventListener('click', handleFavs);
     }
 }
 
 //RENDER FAVS--------------------------------------------------------------------------
+function renderFavs() {
+    let htmlCode = '';
+
+    for (let i = 0; i < series.length; i++) {
+        let imgURL = series[i].show.image;
+        let idSerie = series[i].show.id;
+        htmlCode += `<li class="js__favshow" id="${idSerie}">`;
+        htmlCode += '<div class="js__favshow--container">';
+
+        if (imgURL === null) {
+            htmlCode += `<img class="js__favshow--img"src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" title="${series[i].show.name}" alt="${series[i].show.name} cover not available"/>`;
+        } else {
+            htmlCode += `<img src="${imgURL.medium}" alt="Show image" ${series[i].show.name}" class="js__favshow--img"></img>`;
+        }
+        htmlCode += `<h5 class="js__favshow--name">${series[i].show.name}</h5>`;
+        htmlCode += '</div>';
+        htmlCode += `</li>`;
+    }
+    favElements.innerHTML = htmlCode;
+}
+
+//HANDLE FAVS
+function handleFavs() {
+    renderFavs();
+    selectedFavs();
+}
+
 formElement.addEventListener('submit', handleForm);
 btnElement.addEventListener('click', handleSearch);
