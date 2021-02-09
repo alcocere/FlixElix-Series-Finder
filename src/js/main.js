@@ -48,7 +48,6 @@ function renderShows() {
         htmlCode += `</li>`;
     }
     showsResult.innerHTML = htmlCode;
-    listenFavs();
 }
 
 function handleForm(ev) {
@@ -56,14 +55,13 @@ function handleForm(ev) {
 }
 
 //FAVS --------------------------------------------------------------------------------
-
 const handleFavs = (ev) => {
     const selectedSerie = parseInt(ev.currentTarget.id);
-    // console.log(event.currentTarget.id);
+    //console.log(event.currentTarget.id);
     //consigue el nombre y id de se series donde se hace click
     let clickedShow = series.find((item) => selectedSerie === item.show.id);
     let isFavorite = favSeries.findIndex((item) => selectedSerie === item.show.id);
-    //revisa si el item ya existe en el array de favoritos
+    //revisa si el item ya existe en el array de favoritos, si es -1 es que no existe
     if (isFavorite === -1) {
         //agrega al array el item seleccionado
         favSeries.push(clickedShow);
@@ -71,24 +69,17 @@ const handleFavs = (ev) => {
         //quita el item del array
         favSeries.splice(isFavorite, 1);
     }
-    //cambiar color de fondo serie seleccionada
-    if (selectedSerie.classList.contains('favorite__item--list')) {
-        selectedSerie.classList.add('favorite__item--list');
-    } else {
-        selectedSerie.classList.remove('favorite__item--list');
-    }
-    favElements.innerHTML = '';
 
-    listenFavs();
+    listenElementsClicked();
 };
 
-
-function listenFavs() {
-    const selectedSeries = document.querySelectorAll('.js-show');
-    for (const eachSerie of selectedSeries) {
+function listenElementsClicked() {
+    const listShows = document.querySelectorAll('.js-show');
+    for (const eachSerie of listShows) {
         eachSerie.addEventListener('click', handleFavs);
     }
 }
 
+//RENDER FAVS--------------------------------------------------------------------------
 formElement.addEventListener('submit', handleForm);
 btnElement.addEventListener('click', handleSearch);
