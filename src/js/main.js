@@ -110,10 +110,11 @@ function setInLocalStorage() {
 function getFromLocalStorage() {
     const localStorageFavorites = localStorage.getItem('favSeries');
     if (localStorageFavorites === null) {
+        getDataFromApi();
     } else {
         const arrayFavSeries = JSON.parse(localStorageFavorites);
         favSeries = arrayFavSeries;
-        getDataFromApi();
+
         renderFavs();
     }
 }
