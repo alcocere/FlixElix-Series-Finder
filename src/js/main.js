@@ -21,6 +21,7 @@ const getDataFromApi = () => {
         .then(data => {
             series = data;
             renderShows();
+            setInLocalStorage();
         });
 };
 
@@ -97,13 +98,31 @@ function renderFavs() {
         htmlCode += `</li>`;
     }
     favElements.innerHTML = htmlCode;
+    setInLocalStorage();
 }
+
+// LOCAL STORAGE ----------------------------------------------------------------------
+function setInLocalStorage() {
+    const stringFavorites = JSON.stringify(favSeries);
+    localStorage.setItem('favSeries', stringFavorites);
+}
+
+function getFromLocalStorage() {
+    const localStorageFavorites = localStorage.getItem('favSeries');
+    if (localStorageFavorites === null) {
+    } else {
+        const arrayFavSeries = JSON.parse(localStorageFavorites);
+        favSeries = arrayFavSeries;
+        getDataFromApi();
+        renderFavs();
+    }
+}
+getFromLocalStorage();
 
 //HANDLE FAVS
 function handleFavs(ev) {
     selectedFavs(ev);
     renderFavs();
-
 }
 
 formElement.addEventListener('submit', handleForm);
