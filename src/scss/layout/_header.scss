@@ -5,14 +5,17 @@
 	color: black;
 	text-align: center;
 	height: 170px;
-	font-family: $font-main;
-	// position: fixed;
-	// top: 0px;
+	font-family: $font-title;
+	position: fixed;
+	top: 0px;
 	width: 100%;
 	padding: 15px 25px;
 
 	&__title {
 		font-size: 60px;
 		padding-top: 25px;
+	}
+	&__subtitle {
+		font-family: $font-main;
 	}
 }

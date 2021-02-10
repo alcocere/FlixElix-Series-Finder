@@ -10,6 +10,7 @@ body {
 	grid-template-rows: 120px 1fr;
 	background-color: #262626;
 	color: seashell;
+	margin-top: 200px;
 }
 
 .form {
@@ -60,6 +61,7 @@ body {
 	&--img {
 		height: 250px;
 		max-width: 204px;
+		justify-self: center;
 	}
 	&--name {
 		padding: 10px;
@@ -90,5 +92,5 @@ body {
 
 .favSection__subtitle {
 	font-family: $font-main;
-	font-size: 25px;
+	font-size: 20px;
 }

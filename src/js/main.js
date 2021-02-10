@@ -77,26 +77,11 @@ const selectedFavs = (ev) => {
     if (isFavorite === -1) {
         //agrega al array el item seleccionado
         favSeries.push(clickedShow);
-        // addFavColor(selectedSerie);
     } else {
         favSeries.splice(isFavorite, 1);
-        // removeFavColor(clickedShow);
         //quita el item del array
     }
 };
-
-// function addFavColor(clickedShow) {
-//     const favSerieElement = document.getElementById(clickedShow);
-//     favSerieElement.classList.remove('js__show');
-//     favSerieElement.classList.add('js__show_favorite');
-// }
-
-// function removeFavColor(clickedShow) {
-//     const favSerieElement = document.getElementById(clickedShow);
-//     favSerieElement.classList.remove('js__show_favorite');
-//     favSerieElement.classList.add('js__show');
-// }
-
 
 function listenFavs() {
     const selectedSeries = document.querySelectorAll('.js__show');
@@ -147,11 +132,11 @@ function getFromLocalStorage() {
 }
 getFromLocalStorage();
 
-//HANDLE FAVS
+//HANDLE FAVS--------------------------------------------------------------------------
 function handleFavs(ev) {
     selectedFavs(ev);
     renderFavs();
-    renderShows()
+    renderShows();
 }
 
 formElement.addEventListener('submit', handleForm);
