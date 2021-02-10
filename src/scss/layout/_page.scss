@@ -1,6 +1,6 @@
- body {
- 	background-color: #262626;
- }
+body {
+	background-color: #262626;
+}
 .main {
 	font-family: $font-main;
 	height: 100vh;
@@ -73,15 +73,13 @@
 	border-radius: 5px;
 }
 
-.favorites-section {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	padding-left: 0;
-}
-
 .favorite__item--list {
 	background-color: #debc00;
 	color: rgb(211, 82, 127);
 	border-radius: 14px;
+}
+
+.js__favshow--img {
+	margin-top: 30px;
+	height: 170px;
 }
