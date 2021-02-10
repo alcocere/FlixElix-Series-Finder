@@ -1,9 +1,18 @@
 .header {
-  width: 100%;
-  background-color: rgb(222, 188, 0);
-  padding: 55px 50px;
-  color: black;
-  text-align: center;
-  height: 170px;
-  font-family: $font-main;
+	width: 100%;
+	background-color: rgb(222, 188, 0);
+	padding: 55px 50px;
+	color: black;
+	text-align: center;
+	height: 170px;
+	font-family: $font-main;
+	// position: fixed;
+	// top: 0px;
+	width: 100%;
+	padding: 15px 25px;
+
+	&__title {
+		font-size: 60px;
+		padding-top: 25px;
+	}
 }

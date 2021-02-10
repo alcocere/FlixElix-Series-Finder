@@ -12,20 +12,20 @@ body {
 	color: seashell;
 }
 
-.form-section {
+.form {
 	padding: 40px 0px 20px 0px;
-}
 
-.form-search {
-	width: 250px;
-	height: 40px;
-	background-color: #f6f7f8;
-	border: none;
-	margin-right: 10px;
-	font-size: 16px;
-	padding-left: 10px;
-	font-family: $font-main;
-	border-radius: 5px;
+	&__search {
+		width: 250px;
+		height: 40px;
+		background-color: #f6f7f8;
+		border: none;
+		margin-right: 10px;
+		font-size: 16px;
+		padding-left: 10px;
+		font-family: $font-main;
+		border-radius: 5px;
+	}
 }
 
 .btn {
@@ -50,36 +50,45 @@ body {
 	font-family: $font-main;
 }
 
-.js-show {
+.js__show {
 	margin: 5px;
 	padding: 20px;
 	margin-top: 20px;
 	border: 2px solid #debc00;
 	border-radius: 14px;
-}
 
-.js__show--img {
-	height: 250px;
-	max-width: 204px;
-}
-.js__show--name {
-	padding: 10px;
-	text-align: center;
-	font-family: $font-main;
-	font-size: 20px;
-	background-color: #debc00;
-	color: black;
-	flex-wrap: wrap;
-	border-radius: 5px;
-}
+	&--img {
+		height: 250px;
+		max-width: 204px;
+	}
+	&--name {
+		padding: 10px;
+		text-align: center;
+		font-family: $font-main;
+		font-size: 20px;
+		background-color: #debc00;
+		color: black;
+		flex-wrap: wrap;
+		border-radius: 5px;
+	}
 
-.favorite__item--list {
-	background-color: #debc00;
-	color: rgb(211, 82, 127);
-	border-radius: 14px;
+	&_favorite {
+		margin: 5px;
+		padding: 20px;
+		margin-top: 20px;
+		border: 2px solid #debc00;
+		border-radius: 14px;
+		background-color: #debc00;
+		border-radius: 14px;
+	}
 }
 
 .js__favshow--img {
 	margin-top: 30px;
 	height: 170px;
+}
+
+.favSection__subtitle {
+	font-family: $font-main;
+	font-size: 25px;
 }
