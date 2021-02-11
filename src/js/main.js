@@ -7,6 +7,7 @@ const searchInput = document.querySelector('.js-search');
 const btnElement = document.querySelector('.js-btn');
 const showsResult = document.querySelector('.js-tvshows');
 const favElements = document.querySelector('.js-list-favorites');
+const btnLog = document.querySelector('.js-btn-log');
 
 // Array que se llenara una vez que la api regrese los datos buscados
 let series = [];
@@ -36,6 +37,8 @@ function renderShows() {
     for (let i = 0; i < series.length; i++) {
         let imgURL = series[i].show.image;
         let idSerie = series[i].show.id;
+        let showTime = series[i].show.schedule.time;
+
         if (isFav(series[i])) {
             htmlCode += `<li class="js__show js__show_favorite" id="${idSerie}">`;
 
@@ -51,6 +54,7 @@ function renderShows() {
             htmlCode += `<img src="${imgURL.medium}" alt="Show image" ${series[i].show.name}" class="js__show--img"></img>`;
         }
         htmlCode += `<h5 class="js__show--name">${series[i].show.name}</h5>`;
+        htmlCode += `<p class="js__show--time">${showTime}</p>`;
         htmlCode += '</div>';
         htmlCode += `</li>`;
     }
@@ -138,6 +142,17 @@ function handleFavs(ev) {
     renderFavs();
     renderShows();
 }
+
+// LOG
+
+function handleLog() {
+    for (const seriesName of series) {
+        console.log(seriesName.show.name);
+    }
+}
+
+
+btnLog.addEventListener('click', handleLog);
 
 formElement.addEventListener('submit', handleForm);
 btnElement.addEventListener('click', handleSearch);
