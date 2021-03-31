@@ -7,7 +7,6 @@ const searchInput = document.querySelector('.js-search');
 const btnElement = document.querySelector('.js-btn');
 const showsResult = document.querySelector('.js-tvshows');
 const favElements = document.querySelector('.js-list-favorites');
-const btnLog = document.querySelector('.js-btn-log');
 
 // Array que se llenara una vez que la api regrese los datos buscados
 let series = [];
@@ -136,6 +135,16 @@ function getFromLocalStorage() {
 }
 getFromLocalStorage();
 
+
+//RESET FAVORITES----------------------------------------------------------------------
+const resetBtn = document.querySelector('.js-resetBtn');
+const resetFavorites = () => {
+    favSeries = [];
+    localStorage.removeItem('favSeries');
+    renderFavs();
+    renderShows();
+};
+
 //HANDLE FAVS--------------------------------------------------------------------------
 function handleFavs(ev) {
     selectedFavs(ev);
@@ -143,16 +152,8 @@ function handleFavs(ev) {
     renderShows();
 }
 
-// LOG
-
-function handleLog() {
-    for (const seriesName of series) {
-        console.log(seriesName.show.name);
-    }
-}
-
-
-btnLog.addEventListener('click', handleLog);
-
+resetBtn.addEventListener('click', resetFavorites);
 formElement.addEventListener('submit', handleForm);
 btnElement.addEventListener('click', handleSearch);
+
+

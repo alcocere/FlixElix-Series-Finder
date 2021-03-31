@@ -3,21 +3,16 @@
   <section class="form">
     <form method="GET"
           class="js-form">
-      <input type="text"
+      <input type="search"
              id="search"
              name="search"
              placeholder="Enter a TV show name"
              class="form__search js-search" />
-      <input type="button"
+      <input type="submit"
              name="button"
              id="button"
              value="Search"
              class="btn btn-primary js-btn" />
-      <input type="button"
-             name="log"
-             id="button"
-             value="Log"
-             class="btn btn-primary js-btn-log" />
     </form>
   </section>
   <section>
@@ -25,6 +20,8 @@
   </section>
   <section>
     <h3 class="favSection__subtitle">My Favorite Series &#9829</h3>
+
+    <button class="btn btn-reset js-resetBtn">Delete Favorites<i class="far fa-trash-alt icon"></i></button>
     <ul class="favSection__list js-list-favorites"></ul>
   </section>
 
