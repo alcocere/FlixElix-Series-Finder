@@ -1,21 +1,77 @@
 .header {
 	width: 100%;
-	background-color: rgb(222, 188, 0);
-	padding: 55px 50px;
-	color: black;
+	color: rgba(18, 18, 18, 0.947);
 	text-align: center;
 	height: 170px;
 	font-family: $font-title;
 	position: fixed;
 	top: 0px;
-	width: 100%;
-	padding: 15px 25px;
-
+	padding-top: 15px;
+	background-color: $yellow-secondary;
+	@media all and (min-width: 768px) {
+		text-align: left;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		background-color: transparent;
+		padding: 22px 50px 22px;
+		margin: 1px 40px 30px 5px;
+	}
 	&__title {
-		font-size: 60px;
-		padding-top: 25px;
+		font-size: 40px;
+		padding-top: 20px;
+		@media all and (min-width: 768px) {
+			font-size: 50px;
+			padding-top: 15px;
+		}
 	}
 	&__subtitle {
 		font-family: $font-main;
+	}
+}
+
+.form {
+	padding: 15px 0 15px 0;
+	@media all and (min-width: 768px) {
+		padding: 25px 0px 20px 0px;
+	}
+
+	&__search {
+		width: 200px;
+		height: 40px;
+
+		border: none;
+		margin-right: 10px;
+		font-size: 16px;
+		padding-left: 10px;
+		font-family: $font-main;
+		border-radius: 5px;
+		margin-bottom: 5px;
+		&:focus {
+			outline: 0 none;
+		}
+	}
+}
+
+.searchBtn {
+	height: 35px;
+	padding: 1px 10px 1px;
+	color: $white;
+	font-size: 16px;
+	border: none;
+	color: $yellow-secondary;
+	border-radius: 5px;
+	font-family: $font-main;
+	cursor: pointer;
+	background: $black;
+	border: 1px solid;
+	&:hover {
+		background-color: $black;
+		color: $yellow-secondary;
+		cursor: pointer;
+		transform: scale(1.1);
+	}
+	&:focus {
+		outline: 0 none;
 	}
 }

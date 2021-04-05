@@ -1,28 +1,10 @@
-<main class="main">
-
-  <section class="form">
-    <form method="GET"
-          class="js-form">
-      <input type="search"
-             id="search"
-             name="search"
-             placeholder="Enter a TV show name"
-             class="form__search js-search" />
-      <input type="submit"
-             name="button"
-             id="button"
-             value="Search"
-             class="btn btn-primary js-btn" />
-    </form>
-  </section>
+<main>
   <section>
-    <ul class="results__section--list js-tvshows"></ul>
-  </section>
-  <section>
-    <h3 class="favSection__subtitle">My Favorite Series &#9829</h3>
-
-    <button class="btn btn-reset js-resetBtn">Delete Favorites<i class="far fa-trash-alt icon"></i></button>
+    <h3 class="favSection__title">My Favorite Series</h3>
+    <button class="resetBtn js-resetBtn">Delete all <i class="far fa-trash-alt icon"></i></button>
     <ul class="favSection__list js-list-favorites"></ul>
   </section>
-
+  <section>
+    <ul class="tvshows-container js-tvshows"></ul>
+  </section>
 </main>
