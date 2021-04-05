@@ -2,8 +2,10 @@ body {
 	background: url("../images/popcorntime-op.jpg") no-repeat left / cover fixed;
 	@media all and (min-width: 768px) {
 		background-color: $yellow;
-		background: url("../images/popcorntime-op.jpg") no-repeat center / cover
-			fixed;
+		background-image: url("../images/popcorntime-op.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: fixed;
 	}
 }
 main {
@@ -152,7 +154,7 @@ main {
 			background: rgba(31, 31, 31, 0.427);
 		}
 		&::-webkit-scrollbar-thumb {
-			background-color: red;
+			background-color: rgb(255, 0, 60);
 		}
 	}
 	&__removebtn {
